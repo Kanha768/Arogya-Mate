@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Arogya Mate 🩺 — AI Health Chatbot</title>
+<!-- Lucide icons -->
+<link href="https://unpkg.com/lucide-static/font/lucide.css" rel="stylesheet" />
+<!-- Tailwind CSS CDN for utility classes -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<style>
+  :root {
+    --brand1:#084d47;
+    --brand2:#00655c;
+    --bg:#f0f2f5;
+    --text:#222;
+    --ai:#DCF8C6; /* Telegram bot message color */
+    --user:#FFFFFF; /* User message color */
+  }
+  body.dark {
+    --bg:#1e1e1e;
+    --text:#f0f0f0;
+    --ai:#3a3a3a; /* dark mode bot message */
+    --user:#2d3654; /* dark mode user message */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex; flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, var(--brand1), var(--brand2));
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 1.3rem; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: sticky; top: 0; z-index: 10;
+    border-radius: 0 0 10px 10px;
+  }
+
+  /* Dark mode toggle */
+  .toggle {
+    width: 52px; height: 28px; border-radius: 50px;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer; transition: .4s; position: relative;
+  }
+  .toggle .icon {
+    position: absolute; top: 4px; left: 4px; width: 20px; height: 20px;
+    border-radius: 50%; background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #ffb400;
+    transition: all .5s cubic-bezier(.68,-0.55,.27,1.55);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  body.dark .toggle { background: rgba(255,255,255,0.15); }
+  body.dark .toggle .icon {
+    left: 28px; background: #222; color: #ffd86f; transform: rotate(360deg);
+  }
+
+  /* Chat container */
+  .chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  /* Messages area */
+  .messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Message bubbles */
+  .msg {
+    max-width: 70%;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .msg.user {
+    align-self: flex-end;
+    background-color: var(--user);
+  }
+  .msg.ai {
+    align-self: flex-start;
+    background-color: var(--ai);
+  }
+
+  /* Input area */
+  .input-area {
+    display: flex;
+    padding: 10px 15px;
+    background: #f7f7f7;
+    border-top: 1px solid #ddd;
+  }
+  body.dark .input-area { background: #2a2a2a; border-top: 1px solid #444; }
+
+  input[type=text] {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s;
+  }
+  body.dark input[type=text] {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #f0f0f0;
+  }
+  input[type=text]:focus {
+    border-color: #007bff;
+  }
+
+  /* Send button styled like Telegram */
+  .send-btn {
+    margin-left: 10px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--brand1), var(--brand2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-size: 20px;
+  }
+  .send-btn:hover {
+    transform: scale(1.1);
+  }
+  /* Arrow span inside button */
+  .send-btn .arrow {
+    margin-left: 1px;
+    font-size: 1.9em;
+    line-height: 1;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    color: #00655c;
+  }
+  body.dark .footer { color: #aaa; }
+
+  /* Scrollbar styling for better look */
+  .messages::-webkit-scrollbar {
+    width: 6px;
+  }
+  .messages::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+<!-- HEADER -->
+</head>
+
+<header class="p-4 flex items-center justify-between" style="background-color: #00655c;">
+  <button class="back-button text-white" onclick="window.history.back()"> Back </button>
+  <h1 class="text-white text-2xl font-bold">Arogya Mate 🩺</h1>
+  <div class="toggle" onclick="toggleDark()">
+    <div class="icon"><i class="lucide-sun"></i></div>
+  </div>
+</header>
+
+<!-- Chat container -->
+<div class="chat-container">
+  <div class="messages" id="messages">
+    <div class="msg ai"><strong>Arogya Mate:</strong> Namaste! 🙏🏻I’m your AI health guide. Ask me about symptoms, prevention, or emergency helplines in India.</div>
+  </div>
+  <div class="input-area">
+    <input id="input" type="text" placeholder="Type your health question..." onkeydown="if(event.key==='Enter'){send();}">
+    <button class="send-btn" onclick="send()">
+      <i class="lucide-send"></i>
+      <span class="arrow">⬆</span>
+    </button>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer"><b>© 2025 Arogya Mate. All rights reserved</b></div>
+
+<script>
+  // Toggle dark/light mode
+function toggleDark() {
+  document.body.classList.toggle('dark');
+  const icon=document.querySelector('.toggle .icon i');
+  if(document.body.classList.contains('dark')){
+    icon.className="lucide-moon";
+  } else {
+    icon.className="lucide-sun";
+  }
+}
+
+// Chatbot logic
+const API_KEY="AIzaSyAjvGL-eghismlGm8mh4bY6hkkCFVvx8b8";
+const MODEL="gemini-2.0-flash";
+const ENDPOINT=`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
+
+function appendMessage(text,who='ai'){
+  const cont=document.getElementById('messages');
+  const el=document.createElement('div');
+  el.className='msg '+(who==='user'?'user':'ai');
+  el.innerHTML=`<strong>${who==='user'?'You':'Arogya Mate'}:</strong> ${text}`;
+  cont.appendChild(el); cont.scrollTop=cont.scrollHeight;
+}
+
+function showTyping(){
+  removeTyping();
+  const cont=document.getElementById('messages');
+  const el=document.createElement('div');
+  el.id='typing'; el.className='msg ai';
+  el.innerHTML=`<div class="typing"><div class="dot-anim"></div><div class="dot-anim"></div><div class="dot-anim"></div></div>`;
+  cont.appendChild(el); cont.scrollTop=cont.scrollHeight;
+}
+function removeTyping(){ const el=document.getElementById('typing'); if(el)el.remove(); }
+
+function sendQuick(txt){ document.getElementById('input').value=txt; send(); }
+
+async function send() {
+  const inp = document.getElementById('input');
+  const text = inp.value.trim(); if (!text) return;
+  appendMessage(text, 'user');
+  inp.value = '';
+
+  // Handle date/time queries
+  if (/date.*today|today.*date|current date/i.test(text)) {
+    const d = new Date();
+    const s = d.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+    appendMessage(`📅 आज की तारीख है: ${s}`, 'ai');
+    return;
+  }
+  if (/time.*now|current time|time now/i.test(text)) {
+    const t = new Date().toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+    appendMessage(`🕒 अभी समय है: ${t}`, 'ai');
+    return;
+  }
+
+  showTyping();
+
+  const body = {
+    systemInstruction: { parts:[{ text: "You are Arogya Mate, an Indian health assistant. Be warm, concise, reliable." }] },
+    contents: [{ parts: [{ text }] }]
+  };
+
+  try {
+    const res = await fetch(ENDPOINT, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body) });
+    const data = await res.json();
+    removeTyping();
+    if (data.candidates && data.candidates[0].content.parts[0].text) {
+      appendMessage(data.candidates[0].content.parts[0].text, 'ai');
+    } else {
+      appendMessage("⚠️ Sorry, couldn’t understand.", 'ai');
+    }
+  } catch (e) {
+    removeTyping();
+    appendMessage("⚠️ Check your Network connection.", 'ai');
+  }
+}
+</script>
+</body>
+</html>

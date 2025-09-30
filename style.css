@@ -1,0 +1,152 @@
+<style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body */
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #f4faff;
+      color: #07443dff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      background-color: #00665a;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+      position: relative; /* for back button positioning */
+    }
+
+    /* Back button styles */
+    .back-button {
+      position: absolute;
+      top: 2px;
+      left: 10px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.0em;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    .back-button:hover {
+      color: #ffd700;
+    }
+
+    header h1 {
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 2.0em;
+      margin-bottom: 2px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+      transform: scale(1.1);
+    }
+
+    /* Main */
+    main {
+      
+      margin: auto;
+    }
+
+    /* Section titles with animation */
+    .section-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #0a74da;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+    /* Emergency list grid with animation */
+    .emergency-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    /* Card styles with hover and animation */
+    .card {
+      background-color: #fff;
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Delay animation for each card */
+    .card:nth-child(1) { animation: fadeInUp 1s forwards; animation-delay: 0.2s; }
+    .card:nth-child(2) { animation: fadeInUp 1s forwards; animation-delay: 0.4s; }
+    .card:nth-child(3) { animation: fadeInUp 1s forwards; animation-delay: 0.6s; }
+    .card:nth-child(4) { animation: fadeInUp 1s forwards; animation-delay: 0.8s; }
+    .card:nth-child(5) { animation: fadeInUp 1s forwards; animation-delay: 1s; }
+    .card:nth-child(6) { animation: fadeInUp 1s forwards; animation-delay: 1.2s; }
+    .card:nth-child(7) { animation: fadeInUp 1s forwards; animation-delay: 1.4s; }
+    .card:nth-child(8) { animation: fadeInUp 1s forwards; animation-delay: 1.6s; }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Icon styles inside cards and sections */
+    .icon {
+      margin-right: 10px;
+    }
+
+    /* Specific colors for icons in emergency cards */
+    .icon-police { color: #007bff; }        /* Blue */
+    .icon-fire { color: #dc3545; }          /* Red */
+    .icon-ambulance { color: #28a745; }     /* Green */
+    .icon-disaster { color: #ffc107; }      /* Amber/Yellow */
+    .icon-women { color: #e83e8c; }         /* Pink */
+    .icon-child { color: #6f42c1; }         /* Purple */
+    .icon-road { color: #fd7e14; }          /* Orange */
+    .icon-poison { color: #20c997; }        /* Teal */
+
+    /* Style headers with icons */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+  </style>

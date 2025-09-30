@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQs - Arogya Mate</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* Footer CSS for margin and padding */
+    footer {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #2d3748;
+    }
+    footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Custom fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<header class="p-4 flex items-center justify-between" style="background-color: #00655c;">
+  <button class="back-button text-white" onclick="window.history.back()"> Back
+  </button>
+  <h1 class="text-white text-2xl font-bold">Arogya Mate 🩺</h1>
+</header>
+
+<section class="p-8 max-w-4xl mx-auto fade-in">
+  <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Frequently Asked Questions</h2>
+  <div class="bg-white p-8 rounded shadow space-y-6">
+    <!-- FAQ Item 1 -->
+    <div>
+      <button class="w-full text-left focus:outline-none" onclick="toggleAnswer('answer1')">
+        <h3 class="text-xl font-semibold mb-2 flex items-center justify-between">
+          What is Arogya Mate?
+          <i class="fas fa-chevron-down transition-transform duration-300" id="icon-answer1"></i>
+        </h3>
+      </button>
+      <div class="hidden text-gray-700" id="answer1">
+        Arogya Mate is a platform providing quick access to AI health guidance, emergency contacts, and health benefits like Ayushman Bharat, all in one place for your safety and well-being.
+      </div>
+    </div>
+    <!-- FAQ Item 2 -->
+    <div>
+      <button class="w-full text-left focus:outline-none" onclick="toggleAnswer('answer2')">
+        <h3 class="text-xl font-semibold mb-2 flex items-center justify-between">
+          How do I contact support?
+          <i class="fas fa-chevron-down transition-transform duration-300" id="icon-answer2"></i>
+        </h3>
+      </button>
+      <div class="hidden text-gray-700" id="answer2">
+        You can contact us through the contact form on our website or reach us at info@arogyamate.com.
+      </div>
+    </div>
+    <!-- FAQ Item 3 -->
+    <div>
+      <button class="w-full text-left focus:outline-none" onclick="toggleAnswer('answer3')">
+        <h3 class="text-xl font-semibold mb-2 flex items-center justify-between">
+          Is my personal data safe?
+          <i class="fas fa-chevron-down transition-transform duration-300" id="icon-answer3"></i>
+        </h3>
+      </button>
+      <div class="hidden text-gray-700" id="answer3">
+        Yes, we prioritize your privacy and implement security measures to protect your personal information.
+      </div>
+    </div>
+    <!-- FAQ Item 4 -->
+    <div>
+      <button class="w-full text-left focus:outline-none" onclick="toggleAnswer('answer4')">
+        <h3 class="text-xl font-semibold mb-2 flex items-center justify-between">
+          What services does Arogya Mate offer?
+          <i class="fas fa-chevron-down transition-transform duration-300" id="icon-answer4"></i>
+        </h3>
+      </button>
+      <div class="hidden text-gray-700" id="answer4">
+        We offer AI-powered health guidance, emergency contact numbers, and information about government health schemes like Ayushman Bharat.
+      </div>
+    </div>
+    <!-- Additional FAQs -->
+    <!-- FAQ Item 5 -->
+    <div>
+      <button class="w-full text-left focus:outline-none" onclick="toggleAnswer('answer5')">
+        <h3 class="text-xl font-semibold mb-2 flex items-center justify-between">
+          How accurate is the AI health guidance?
+          <i class="fas fa-chevron-down transition-transform duration-300" id="icon-answer5"></i>
+        </h3>
+      </button>
+      <div class="hidden text-gray-700" id="answer5">
+        Our AI health guidance is based on the latest medical data and is intended to assist, not replace, professional medical advice.
+      </div>
+    </div>
+    <!-- FAQ Item 6 -->
+    <div>
+      <button class="w-full text-left focus:outline-none" onclick="toggleAnswer('answer6')">
+        <h3 class="text-xl font-semibold mb-2 flex items-center justify-between">
+          Can I access emergency numbers easily?
+          <i class="fas fa-chevron-down transition-transform duration-300" id="icon-answer6"></i>
+        </h3>
+      </button>
+      <div class="hidden text-gray-700" id="answer6">
+        Yes, emergency numbers are readily accessible within the app for quick use during urgent situations.
+      </div>
+    </div>
+    <!-- FAQ Item 7 -->
+    <div>
+      <button class="w-full text-left focus:outline-none" onclick="toggleAnswer('answer7')">
+        <h3 class="text-xl font-semibold mb-2 flex items-center justify-between">
+          How does the Ayushman Bharat benefit work?
+          <i class="fas fa-chevron-down transition-transform duration-300" id="icon-answer7"></i>
+        </h3>
+      </button>
+      <div class="hidden text-gray-700" id="answer7">
+        The app provides information and assistance on how to avail Ayushman Bharat benefits, including nearby healthcare providers and coverage details.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer remains unchanged -->
+<footer class="bg-gray-800 text-white pt-8 pb-4">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <!-- Company Info -->
+      <div>
+        <div class="flex items-center mb-6">
+          <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-2">
+            AM
+          </div>
+          <span class="text-2xl font-bold">Arogya Mate</span>
+        </div>
+        <p class="text-gray-400 mb-6">Quick access to smart AI health guidance, emergency numbers, and Ayushman Bharat benefits — all in one place for your safety and well-being.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-bold mb-6" style="color: rgb(211, 224, 26);">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+          <li><a href="aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+          <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+          <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+          <li><a href="privicypolicy.html" class="text-gray-400 hover:text-white transition">Privacy policy</a></li>
+        </ul>
+      </div>
+      
+      <!-- Services -->
+      <div>
+        <h3 class="text-lg font-bold mb-6" style="color: rgb(211, 224, 26);">Services</h3>
+        <ul class="space-y-3">
+          <li><a href="chart.html" class="text-gray-400 hover:text-white transition">AI Chatbot</a></li>
+          <li><a href="Emergency.html" class="text-gray-400 hover:text-white transition">Emergency numbers</a></li>
+          <li><a href="ayushman.html" class="text-gray-400 hover:text-white transition">Ayushman Bharat</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-lg font-bold mb-6" style="color: rgb(211, 224, 26);">Contact Us</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
+            <span class="text-gray-400">MPC college baripada, Odisha</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-phone-alt text-blue-400 mr-3"></i>
+            <span class="text-gray-400">+91 7681022020</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+            <span class="text-gray-400">info@arogyamate.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white-700 pt-8 text-center">
+      <p class="text-white-400">© 2025 Arogya Mate. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleAnswer(id) {
+    const answerDiv = document.getElementById(id);
+    const icon = document.getElementById('icon-' + id);
+    if (answerDiv.classList.contains('hidden')) {
+      answerDiv.classList.remove('hidden');
+      icon.classList.remove('fa-chevron-down');
+      icon.classList.add('fa-chevron-up');
+    } else {
+      answerDiv.classList.add('hidden');
+      icon.classList.remove('fa-chevron-up');
+      icon.classList.add('fa-chevron-down');
+    }
+  }
+</script>
+
+</body>
+</html>

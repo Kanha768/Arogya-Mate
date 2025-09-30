@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arogya Mate - Emergency Services</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
+  <link href="style2.css" rel="stylesheet" type="text/css" />
+  <link href="style3.css" rel="stylesheet" type="text/css" />
+  
+  <style>
+    /* Footer CSS for margin and padding */
+    footer {
+      margin-top: 20px; /* Space above the footer */
+      padding: 20px;    /* Space inside the footer */
+      background-color: #2d3748; /* Match your existing bg-gray-800 */
+    }
+
+    /* Optional: Center container and control grid spacing */
+    footer .container {
+      max-width: 1200px;
+      margin: 0 auto; /* Center the container */
+    }
+
+    /* Adjust grid spacing if needed */
+    footer .grid {
+      gap: 16px; /* Space between columns */
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button class="back-button" onclick="window.history.back()">Back</button>
+  <h1>Arogya Mate 🩺</h1>
+</header>
+
+<section id="home">
+  <h2><b>Welcome to Arogya Mate</b></h2>
+  <p>Your trusted partner in health and wellness. Providing accessible healthcare information and services inspired by Ayushman Bharat.</p>
+</section>
+
+<section id="about">
+  <h2><b>About Ayushman Bharat</b></h2>
+  <p>Ayushman Bharat is India’s flagship healthcare scheme that provides free health coverage of up to ₹5 lakh per family per year, along with Health & Wellness Centres offering primary care and preventive services for all</p>
+</section>
+
+<section id="benefits">
+  <h2><b>Benefits of Ayushman Bharat</b></h2>
+  <ul>
+    <li>📌<b>Free Health Coverage –</b>Provides up to ₹5 lakh per family per year for secondary and tertiary hospital care.</li>
+    <li>📌<b>Cashless & Paperless Treatment –</b>Beneficiaries can access services without paying at the time of treatment.</li>
+    <li>📌<b>Wide Hospital Network –</b>Empaneled public and private hospitals across India for easy access.</li>
+    <li>📌<b>Covers Major Illnesses –</b>Includes treatments like cancer, heart disease, kidney issues, and more.</li>
+    <li>📌<b>No Age or Family Size Limit –</b>Covers all family members without restriction.</li>
+    <li>📌<b>Pre and Post-Hospitalization Costs Covered –</b>Medicines, tests, and follow-up care included.</li>
+    <li>📌<b>Focus on Prevention –</b>Health & Wellness Centres provide free check-ups, screenings, and awareness programs.</li>
+    <li>📌<b>Financial Protection –</b>Reduces out-of-pocket medical expenses and prevents families from falling into poverty due to health costs.</li>
+  </ul>
+</section>
+
+<section id="how-it-works">
+  <h2><b>How It Works</b></h2>
+  <p>Patients can register through authorized health centers or online portals. They receive a health card that provides access to various medical services at partnered hospitals. The process is simple, transparent, and designed for your convenience.</p>
+</section>
+
+<section id="more-info">
+  <h2><b>More Information</b></h2>
+  <p>For detailed information about benefits, registration processes, and the latest updates, visit the official Ayushman Bharat website.</p>
+  <a class="btn" href="https://www.pmjay.gov.in" target="_blank">Visit Official Website</a>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white pt-8 pb-4">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <!-- Company Info -->
+      <div>
+        <div class="flex items-center mb-6">
+          <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-2">
+            AM
+          </div>
+          <span class="text-4xl font-bold">Arogya Mate</span>
+        </div>
+        <p class="text-gray-400 mb-6">Quick access to smart AI health guidance, emergency numbers, and Ayushman Bharat benefits — all in one place for your safety and well-being.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-bold mb-6" style="color: rgb(211, 224, 26);">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+          <li><a href="aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+          <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+          <li><a href="faq.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+          <li><a href="privicypolicy.html" class="text-gray-400 hover:text-white transition">Privacy policy</a></li>
+        </ul>
+      </div>
+      
+      <!-- Services -->
+      <div>
+        <h3 class="text-lg font-bold mb-6" style="color: rgb(211, 224, 26);">Services</h3>
+        <ul class="space-y-3">
+          <li><a href="chart.html" class="text-gray-400 hover:text-white transition">AI Chatbot</a></li>
+          <li><a href="Emergency.html" class="text-gray-400 hover:text-white transition">Emergency numbers</a></li>
+          <li><a href="ayushman.html" class="text-gray-400 hover:text-white transition">Ayushman Bharat</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-lg font-bold mb-6" style="color: rgb(211, 224, 26);">Contact Us</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
+            <span class="text-gray-400">MPC college baripada,Odisha</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-phone-alt text-blue-400 mr-3"></i>
+            <span class="text-gray-400">+91 7681022020</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+            <span class="text-gray-400">info@arogyamate.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-white-700 pt-8 text-center">
+      <p class="text-white-400">© 2025 Arogya Mate. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
