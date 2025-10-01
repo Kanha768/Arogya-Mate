@@ -19,8 +19,8 @@
   }
   body.dark {
     --bg:#1e1e1e;
-    --text:#f0f0f0;
-    --ai:#3a3a3a; /* dark mode bot message */
+    --text:#000000;
+    --ai:#c9f7a6; /* dark mode bot message */
     --user:#2d3654; /* dark mode user message */
   }
 
@@ -46,6 +46,7 @@
   }
 
   /* Dark mode toggle */
+  
   .toggle {
     width: 52px; height: 28px; border-radius: 50px;
     background: rgba(255,255,255,0.3);
@@ -71,12 +72,13 @@
     flex-direction: column;
     max-width: 700px;
     margin: 20px auto;
-    background: #fff;
+    background: #ffffffee;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    
   }
-
+body.dark .chat-container { background: #2e2e2eee;}
   /* Messages area */
   .messages {
     flex: 1;
